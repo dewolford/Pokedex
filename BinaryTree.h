@@ -17,6 +17,7 @@ using namespace std;
 class BinaryTree
 {
     private:
+    //embedded struct
         struct TreeNode
         {
             Pokemon value;
@@ -26,23 +27,55 @@ class BinaryTree
 
         TreeNode* rootPtr;
 
-        //functions
-        void insert(TreeNode);
-        void destroySubTree(TreeNode);
-        void displayInOrder(TreeNode);
+    //functions
+        void insert(TreeNode*)
+        {
+
+        };
+        void destroySubTree(TreeNode*)
+        {
+
+        };
+        void displayInOrder(TreeNode*)
+        {
+
+        };
 
     public:
-        //constructors
-        BinaryTree();           //default
-        BinaryTree(TreeNode*);  //overloaded
+    //constructors
+        //default
+        BinaryTree()
+        {
+            rootPtr = nullptr;
+        };
+        //overloaded      
+        BinaryTree(TreeNode* tempPtr)
+        {
+            rootPtr = tempPtr;
+        };
 
-        //destructor
-        ~BinaryTree();
+    //destructor
+        ~BinaryTree()
+        {
+            destroySubTree(rootPtr);
+        };
 
-        //other functions
-        void insertNode(TreeNode);
-        void displayInOrder();
-        bool searchNode(TreeNode);
+    //other functions
+        void insertNode(TreeNode* tempPtr)
+        {
+            tempPtr = new TreeNode;
+            insert(tempPtr);
+        };
+        void displayInOrder()
+        {
+            displayInOrder(rootPtr);
+        };
+        bool searchNode(TreeNode* tempPtr)
+        {
+            /*  iterate through tree                */
+            /*  return true if tempPtr is found     */
+            /*  return fals if not found            */
+        };
 
 };
 

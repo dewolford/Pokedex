@@ -18,20 +18,43 @@ class Pokemon
     private:
         int indexNum;
         string Name;
+        
     public:
-        //constructors
-        Pokemon();              //default
-        Pokemon(int, string);   //overloaded
+    //constructors
+        //default
+        Pokemon()
+        {
+            indexNum = 0;
+            Name = " ";
+        };
+        //overloaded   
+        Pokemon(int i, string n)
+        {
+            indexNum = i;
+            Name = n;
+        };
 
-        //setters
-        void setID(int);
-        void setName(string);
+    //setters
+        void setID(int i)
+        {
+            indexNum = i;
+        };
+        void setName(string n)
+        {
+            Name = n;
+        };
 
-        //getters
-        int getID();
-        string getName();
+    //getters
+        int getID()
+        {
+            return indexNum;
+        };
+        string getName()
+        {
+            return Name;
+        };
 
-        //operators
+    //operators
         /*   < operator     */
         /*   == operator    */
         /*   << operator    */
