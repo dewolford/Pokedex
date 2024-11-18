@@ -14,13 +14,14 @@
 
 using namespace std;
 
+template <typename T>
 class BinaryTree
 {
     private:
     //embedded struct
         struct TreeNode
         {
-            Pokemon value;
+            T value;
             TreeNode* leftPtr;
             TreeNode* rightPtr;
         };
@@ -28,17 +29,44 @@ class BinaryTree
         TreeNode* rootPtr;
 
     //functions
-        void insert(TreeNode*)
+        void insert(TreeNode *&nodePtr, TreeNode *&newNode)
         {
-
+            if (nodePtr == nullptr)
+            {
+                nodePtr = newNode;
+            }
+            else if (newNode->value < nodePtr->value)
+            {
+                insert(nodePtr->leftPtr, newNode);
+            }
+            else
+            {
+                insert(nodePtr->rightPtr, newNode);
+            }
         };
-        void destroySubTree(TreeNode*)
+        void destroySubTree(TreeNode* nodePtr)
         {
-
+            if(nodePtr)
+            {
+                if (nodePtr->leftPtr)
+                {
+                    destroySubTree(nodePtr->leftPtr);
+                }
+                if (nodePtr->rightPtr)
+                {
+                    destroySubTree(nodePtr->rightPtr);
+                }
+                delete nodePtr;
+            }
         };
-        void displayInOrder(TreeNode*)
+        void displayInOrder(TreeNode* nodePtr) const
         {
-
+            if(nodePtr)
+            {
+                displayInOrder(nodePtr->leftPtr);
+                cout << nodePtr->value << endl;
+                displayInOrder(nodePtr->rightPtr);
+            }
         };
 
     public:
@@ -46,7 +74,7 @@ class BinaryTree
         //default
         BinaryTree()
         {
-            rootPtr = nullptr;
+            rootPtr = NULL;
         };
         //overloaded      
         BinaryTree(TreeNode* tempPtr)
@@ -61,20 +89,40 @@ class BinaryTree
         };
 
     //other functions
-        void insertNode(TreeNode* tempPtr)
+        void insertNode(T item)
         {
+            TreeNode *tempPtr = nullptr;
+
             tempPtr = new TreeNode;
-            insert(tempPtr);
+            tempPtr->value = item;
+            tempPtr->leftPtr = tempPtr->rightPtr = nullptr;
+
+            insert(rootPtr, tempPtr);
         };
         void displayInOrder()
         {
             displayInOrder(rootPtr);
         };
-        bool searchNode(TreeNode* tempPtr)
+        bool searchNode(T item)
         {
-            /*  iterate through tree                */
-            /*  return true if tempPtr is found     */
-            /*  return fals if not found            */
+            TreeNode *nodePtr = rootPtr;
+
+            while(nodePtr)
+            {
+                if(nodePtr->value == item)
+                {
+                    return true;
+                }
+                else if (item < nodePtr->value)
+                {
+                    nodePtr = nodePtr->leftPtr;
+                }
+                else
+                {
+                    nodePtr = nodePtr->rightPtr;
+                }
+            }
+            return false;
         };
 
 };
