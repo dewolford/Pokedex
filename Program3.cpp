@@ -17,6 +17,8 @@ int main()
 {
     //variables
     ifstream infile;
+    string name;
+    int indexNum;
     Pokemon temp;
     
     //create the binary tree
@@ -30,7 +32,10 @@ int main()
     {
         while(!infile.eof())
         {
-            getline(infile, temp, '#');
+            infile.getline(indexNum, '#');
+            temp.setID(indexNum);
+            infile.getline(name, '#');
+            temp.setName(name);
             pokedex.insertNode(temp);    
         }
     }
