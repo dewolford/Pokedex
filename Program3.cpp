@@ -1,8 +1,9 @@
-//**************************************
+//*********************************************************
 // Title:   Program3.cpp
 // Purpose: hold the main function 
 //          serving as the driver
-//**************************************
+// Link to repo: https://github.com/dewolford/Pokedex
+//*********************************************************
 
 #include "Pokemon.h"
 #include "BinaryTree.h"
