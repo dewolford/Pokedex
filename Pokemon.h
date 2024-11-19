@@ -56,20 +56,21 @@ class Pokemon
 
     //operators
         /*   < operator     */
-        //bool operator < (const Pokemon& item)
-        //{
-            //return this->indexNum < item.indexNum;
-        //};
+        bool operator < (const Pokemon& item)
+        {
+            return this->indexNum < item.indexNum;
+        };
         /*   == operator    */
-        //bool operator == (const Pokemon& item)
-        //{
+        bool operator == (const Pokemon& item)
+        {
             //return this->indexNum == item.indexNum;
-        //};
+        };
         /*   << operator    */
-        //bool operator << (Pokemon& item1)
-        //{
-            //return this->indexNum << item1.indexNum;
-        //}
+        friend ostream& operator<<(ostream& os, const Pokemon& item)
+        {
+            os << "(" << item.indexNum << ", " << item.Name << ")";
+            return os;
+        }
 };
 
 #endif
