@@ -63,7 +63,7 @@ class Pokemon
         /*   == operator    */
         bool operator == (const Pokemon& item)
         {
-            //return this->indexNum == item.indexNum;
+            return this->indexNum == item.indexNum;
         };
         /*   << operator    */
         friend ostream& operator<<(ostream& os, const Pokemon& item)
