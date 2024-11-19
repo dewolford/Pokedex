@@ -61,7 +61,7 @@ class BinaryTree
         };
         void displayInOrder(TreeNode* nodePtr) const
         {
-            if(nodePtr)
+            if(nodePtr != nullptr)
             {
                 displayInOrder(nodePtr->leftPtr);
                 cout << nodePtr->value << endl;

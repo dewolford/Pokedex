@@ -56,20 +56,20 @@ class Pokemon
 
     //operators
         /*   < operator     */
-        bool operator < (const Pokemon& item)
-        {
-            return this->indexNum < item.indexNum;
-        };
+        //bool operator < (const Pokemon& item)
+        //{
+            //return this->indexNum < item.indexNum;
+        //};
         /*   == operator    */
-        bool operator == (const Pokemon& item)
-        {
-            return this->indexNum == item.indexNum;
-        };
+        //bool operator == (const Pokemon& item)
+        //{
+            //return this->indexNum == item.indexNum;
+        //};
         /*   << operator    */
-        bool operator << (const Pokemon& item)
-        {
-            return this->indexNum << item.indexNum;
-        }
+        //bool operator << (Pokemon& item1)
+        //{
+            //return this->indexNum << item1.indexNum;
+        //}
 };
 
 #endif
