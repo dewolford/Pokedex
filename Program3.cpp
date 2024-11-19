@@ -17,9 +17,10 @@ int main()
 {
     //variables
     ifstream infile;
-    string name;
+    string name, tempID;
     int indexNum;
     Pokemon temp;
+    int totalNum = 0;
     
     //create the binary tree
     BinaryTree<Pokemon> pokedex;
@@ -30,14 +31,20 @@ int main()
     //read in pokemon from .txt file
     if (infile.is_open())
     {
-        while(!infile.eof())
+        while(getline(infile, tempID, '#'))
         {
-            infile.getline(indexNum, '#');
+            indexNum = stoi(tempID);
             temp.setID(indexNum);
-            infile.getline(name, '#');
+            getline(infile, name, '#');
             temp.setName(name);
-            pokedex.insertNode(temp);    
+            cout << "\nInserting Pokemon with index " << indexNum << " into the Pokedex.";
+            pokedex.insertNode(temp);  
+            totalNum++;
         }
+
+        //display number of pokemon added
+        cout << "\n\n" << indexNum << " Pokemon have been added to the Pokedex!";
+    
     }
     else
     {
